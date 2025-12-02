@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptos - Blog Grafos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">📊 Grafos</div>
+            <ul class="nav-menu">
+                <li><a href="indice.html">Inicio</a></li>
+                <li><a href="bienvenida.html">Bienvenida</a></li>
+                <li><a href="conceptos.html" class="active">Conceptos</a></li>
+                <li><a href="guia_rapida.html">Guía Rápida</a></li>
+                <li><a href="index.html">Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-welcome">
+        <div class="container">
+            <h1>Conceptos Fundamentales de Grafos</h1>
+            <p>Aprende la teoría detrás de esta poderosa estructura de datos</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Definición</h2>
+            <div class="concept-box">
+                <p>Un <strong>grafo</strong> G = (V, E) es una estructura de datos que consiste en:</p>
+                <ul class="concept-list">
+                    <li><strong>V:</strong> Un conjunto finito de vértices (nodos)</li>
+                    <li><strong>E:</strong> Un conjunto finito de aristas que conectan pares de vértices</li>
+                </ul>
+                <p style="margin-top: 1.5rem;"><strong>Notación matemática:</strong> G = (V, E) donde E ⊆ V × V</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alternate">
+        <div class="container">
+            <h2>Terminología Básica</h2>
+            <div class="terminology-grid">
+                <div class="term-card">
+                    <h3>Vértice (Nodo)</h3>
+                    <p>Elemento fundamental del grafo. Se representa como un punto.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Arista (Lado)</h3>
+                    <p>Conexión entre dos vértices. Se representa como una línea.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Vecino</h3>
+                    <p>Dos vértices son vecinos si existe una arista que los conecta.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Grado</h3>
+                    <p>Número de aristas conectadas a un vértice.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Camino</h3>
+                    <p>Secuencia de vértices conectados por aristas.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Ciclo</h3>
+                    <p>Camino que comienza y termina en el mismo vértice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Clasificación de Grafos</h2>
+            
+            <h3 style="margin-top: 2rem; color: #667eea;">1. Por Dirección de Aristas</h3>
+            <div class="content-grid">
+                <div class="card">
+                    <h4>Grafo No Dirigido</h4>
+                    <p>Las aristas no tienen dirección. Si existe una arista A-B, también existe B-A.</p>
+                    <p><strong>Ejemplo:</strong> Red de amistad en Facebook</p>
+                </div>
+                <div class="card">
+                    <h4>Grafo Dirigido (Dígrafo)</h4>
+                    <p>Las aristas tienen dirección indicada por flechas. Una arista A→B no implica B→A.</p>
+                    <p><strong>Ejemplo:</strong> Seguidores en Twitter</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #667eea;">2. Por Pesos en Aristas</h3>
+            <div class="content-grid">
+                <div class="card">
+                    <h4>Grafo No Ponderado</h4>
+                    <p>Las aristas no tienen valores asociados. Todas tienen el mismo "peso".</p>
+                    <p><strong>Ejemplo:</strong> Red de computadoras</p>
+                </div>
+                <div class="card">
+                    <h4>Grafo Ponderado</h4>
+                    <p>Las aristas tienen valores numéricos (pesos) asociados.</p>
+                    <p><strong>Ejemplo:</strong> Mapa de carreteras con distancias</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #667eea;">3. Por Presencia de Ciclos</h3>
+            <div class="content-grid">
+                <div class="card">
+                    <h4>Grafo Acíclico</h4>
+                    <p>No contiene ciclos. Un camino no puede volver a su punto de partida.</p>
+                    <p><strong>Ejemplo:</strong> Árbol genealógico</p>
+                </div>
+                <div class="card">
+                    <h4>Grafo Cíclico</h4>
+                    <p>Contiene al menos un ciclo.</p>
+                    <p><strong>Ejemplo:</strong> Red de autopistas</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #667eea;">4. Casos Especiales</h3>
+            <div class="content-grid">
+                <div class="card">
+                    <h4>Árbol</h4>
+                    <p>Grafo acíclico conectado. Tiene V-1 aristas para V vértices.</p>
+                </div>
+                <div class="card">
+                    <h4>DAG (Directed Acyclic Graph)</h4>
+                    <p>Grafo dirigido acíclico. Usado en planificación de tareas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alternate">
+        <div class="container">
+            <h2>Representación en Memoria</h2>
+            
+            <h3 style="color: #667eea; margin-top: 1.5rem;">Matriz de Adyacencia</h3>
+            <div class="code-block">
+                <p><strong>Descripción:</strong> Matriz de tamaño V×V donde M[i][j] = 1 si existe arista entre i y j.</p>
+                <p><strong>Ventajas:</strong> Búsqueda rápida O(1), sencilla de implementar</p>
+                <p><strong>Desventajas:</strong> Consume O(V²) memoria, ineficiente para grafos dispersos</p>
+            </div>
+
+            <h3 style="color: #667eea; margin-top: 1.5rem;">Lista de Adyacencia</h3>
+            <div class="code-block">
+                <p><strong>Descripción:</strong> Para cada vértice, una lista de sus vecinos.</p>
+                <p><strong>Ventajas:</strong> Consume O(V+E) memoria, eficiente para grafos dispersos</p>
+                <p><strong>Desventajas:</strong> Búsqueda más lenta, más compleja de implementar</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Propiedades Importantes</h2>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <h3>Conectividad</h3>
+                    <p>Un grafo es <strong>conectado</strong> si existe un camino entre cualquier par de vértices.</p>
+                </div>
+                <div class="property-card">
+                    <h3>Completitud</h3>
+                    <p>Un grafo es <strong>completo</strong> si existe una arista entre cada par de vértices distintos.</p>
+                </div>
+                <div class="property-card">
+                    <h3>Componentes Conectadas</h3>
+                    <p>Subconjuntos de vértices donde cada subconjunto es un grafo conectado.</p>
+                </div>
+                <div class="property-card">
+                    <h3>Planaridad</h3>
+                    <p>Un grafo es <strong>planar</strong> si puede dibujarse sin que sus aristas se crucen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Continúa aprendiendo</h2>
+            <div style="text-align: center; padding: 2rem;">
+                <a href="guia_rapida.html" class="btn-primary">Ir a Guía Rápida →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blog de Estructura de Datos. Aprendiendo sobre Grafos.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

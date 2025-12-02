@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Rápida - Blog Grafos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">📊 Grafos</div>
+            <ul class="nav-menu">
+                <li><a href="indice.html">Inicio</a></li>
+                <li><a href="bienvenida.html">Bienvenida</a></li>
+                <li><a href="conceptos.html">Conceptos</a></li>
+                <li><a href="guia_rapida.html" class="active">Guía Rápida</a></li>
+                <li><a href="index.html">Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-welcome">
+        <div class="container">
+            <h1>Guía Rápida de Referencia</h1>
+            <p>Referencia práctica con algoritmos, código y tablas de complejidad</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>BFS (Búsqueda en Amplitud)</h2>
+            <div class="code-block">
+                <strong>Complejidad:</strong> O(V + E)<br>
+                <strong>Uso:</strong> Camino más corto en grafos no ponderados<br>
+                <strong>Ventajas:</strong> Eficiente, encuentra el camino más corto<br>
+                <strong>Desventajas:</strong> No funciona con pesos negativos
+            </div>
+            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 5px; margin-top: 1rem;">
+                <pre><code>def bfs(grafo, inicio):
+    visitados = set()
+    cola = deque([inicio])
+    resultado = []
+    
+    while cola:
+        v = cola.popleft()
+        if v not in visitados:
+            visitados.add(v)
+            resultado.append(v)
+            cola.extend([u for u in grafo[v] 
+                        if u not in visitados])
+    
+    return resultado</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alternate">
+        <div class="container">
+            <h2>DFS (Búsqueda en Profundidad)</h2>
+            <div class="code-block">
+                <strong>Complejidad:</strong> O(V + E)<br>
+                <strong>Uso:</strong> Detectar ciclos, topología<br>
+                <strong>Ventajas:</strong> Usa menos memoria que BFS (recursivo)<br>
+                <strong>Desventajas:</strong> Puede desbordarse con grafos profundos
+            </div>
+            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 5px; margin-top: 1rem;">
+                <pre><code>def dfs(grafo, v, visitados=None):
+    if visitados is None:
+        visitados = set()
+    
+    visitados.add(v)
+    
+    for u in grafo[v]:
+        if u not in visitados:
+            dfs(grafo, u, visitados)
+    
+    return visitados</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Algoritmo de Dijkstra</h2>
+            <div class="code-block">
+                <strong>Complejidad:</strong> O(V²) o O((V+E)logV) con heap<br>
+                <strong>Uso:</strong> Camino más corto en grafos ponderados<br>
+                <strong>Limitación:</strong> No funciona con pesos negativos<br>
+                <strong>Ventajas:</strong> Óptimo para grafos ponderados
+            </div>
+            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 5px; margin-top: 1rem;">
+                <pre><code>def dijkstra(grafo, inicio):
+    distancias = {v: float('inf') for v in grafo}
+    distancias[inicio] = 0
+    visitados = set()
+    
+    while len(visitados) < len(grafo):
+        u = min((v for v in grafo if v not in visitados),
+                key=lambda v: distancias[v])
+        visitados.add(u)
+        
+        for v, peso in grafo[u]:
+            if distancias[u] + peso < distancias[v]:
+                distancias[v] = distancias[u] + peso
+    
+    return distancias</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alternate">
+        <div class="container">
+            <h2>Tabla de Complejidades</h2>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: #667eea; color: white;">
+                            <th style="padding: 1rem; border: 1px solid #ddd; text-align: left;">Operación</th>
+                            <th style="padding: 1rem; border: 1px solid #ddd; text-align: left;">Matriz Adyacencia</th>
+                            <th style="padding: 1rem; border: 1px solid #ddd; text-align: left;">Lista Adyacencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Verificar arista</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(1)</td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(grado)</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Agregar arista</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(1)</td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(1)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Eliminar arista</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(1)</td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(grado)</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 1rem; border: 1px solid #ddd;"><strong>BFS/DFS</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(V²)</td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(V+E)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid #ddd;"><strong>Espacio</strong></td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(V²)</td>
+                            <td style="padding: 1rem; border: 1px solid #ddd;">O(V+E)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Detección de Ciclos</h2>
+            
+            <h3 style="color: #667eea; margin-top: 1.5rem;">En Grafo No Dirigido</h3>
+            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 5px; margin-top: 1rem;">
+                <pre><code>def tiene_ciclo(grafo, n):
+    visitados = [False] * n
+    
+    def dfs(v, padre):
+        visitados[v] = True
+        for u in grafo[v]:
+            if not visitados[u]:
+                if dfs(u, v):
+                    return True
+            elif u != padre:
+                return True
+        return False
+    
+    for i in range(n):
+        if not visitados[i]:
+            if dfs(i, -1):
+                return True
+    return False</code></pre>
+            </div>
+
+            <h3 style="color: #667eea; margin-top: 1.5rem;">En Grafo Dirigido</h3>
+            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 5px; margin-top: 1rem;">
+                <pre><code>def tiene_ciclo_dirigido(grafo, n):
+    color = [0] * n  # 0: blanco, 1: gris, 2: negro
+    
+    def dfs(v):
+        color[v] = 1
+        for u in grafo[v]:
+            if color[u] == 1:
+                return True
+            if color[u] == 0 and dfs(u):
+                return True
+        color[v] = 2
+        return False
+    
+    for i in range(n):
+        if color[i] == 0:
+            if dfs(i):
+                return True
+    return False</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alternate">
+        <div class="container">
+            <h2>Componentes Conectadas</h2>
+            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 5px; margin-top: 1rem;">
+                <pre><code>def componentes_conectadas(grafo, n):
+    visitados = [False] * n
+    componentes = []
+    
+    def dfs(v, componente):
+        visitados[v] = True
+        componente.append(v)
+        for u in grafo[v]:
+            if not visitados[u]:
+                dfs(u, componente)
+    
+    for i in range(n):
+        if not visitados[i]:
+            componente = []
+            dfs(i, componente)
+            componentes.append(componente)
+    
+    return componentes</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Consejos Prácticos</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>✓ Matriz vs Lista</h3>
+                    <p><strong>Matriz:</strong> Grafo denso (muchas aristas)<br>
+                    <strong>Lista:</strong> Grafo disperso (pocas aristas)</p>
+                </div>
+                <div class="card">
+                    <h3>✓ BFS vs DFS</h3>
+                    <p><strong>BFS:</strong> Camino más corto (no ponderado)<br>
+                    <strong>DFS:</strong> Ciclos, topología, componentes</p>
+                </div>
+                <div class="card">
+                    <h3>✓ Dijkstra</h3>
+                    <p><strong>Usar cuando:</strong> Necesitas camino más corto<br>
+                    <strong>Evitar si:</strong> Hay pesos negativos</p>
+                </div>
+                <div class="card">
+                    <h3>✓ Debugging</h3>
+                    <p><strong>Dibuja el grafo<br>
+                    Traza manualmente<br>
+                    Usa visualizaciones</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alternate">
+        <div class="container">
+            <h2>Aplicaciones Comunes</h2>
+            <div class="applications">
+                <div class="app-item">
+                    <h3>🗺️ GPS/Mapas</h3>
+                    <p>Dijkstra para encontrar rutas más cortas</p>
+                </div>
+                <div class="app-item">
+                    <h3>🤝 Redes Sociales</h3>
+                    <p>BFS para recomendaciones, DFS para comunidades</p>
+                </div>
+                <div class="app-item">
+                    <h3>💻 Compiladores</h3>
+                    <p>DFS para análisis de dependencias</p>
+                </div>
+                <div class="app-item">
+                    <h3>🎮 Videojuegos</h3>
+                    <p>A* (basado en Dijkstra) para pathfinding</p>
+                </div>
+                <div class="app-item">
+                    <h3>🏭 Logística</h3>
+                    <p>Dijkstra para optimización de rutas</p>
+                </div>
+                <div class="app-item">
+                    <h3>🔗 Web</h3>
+                    <p>DFS/BFS para crawling y análisis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Recursos</h2>
+            <div style="text-align: center; padding: 2rem;">
+                <p>Para más detalles, consulta:</p>
+                <ul style="list-style: none; margin: 1rem 0;">
+                    <li><a href="conceptos.html" class="card-link">Conceptos Fundamentales →</a></li>
+                    <li><a href="guia_rapida.md" class="card-link">Guía Rápida Markdown →</a></li>
+                    <li><a href="grafo_ejemplos.py" class="card-link">Código Python →</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blog de Estructura de Datos. Aprendiendo sobre Grafos.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

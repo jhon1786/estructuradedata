@@ -1,0 +1,106 @@
+{
+    "sitio": {
+        "titulo": "Blog de Estructura de Datos - Grafos",
+        "descripcion": "Tutorial completo sobre grafos, una estructura de datos fundamental en programación",
+        "autor": "Tutorial de Grafos",
+        "version": "1.0",
+        "idioma": "es"
+    },
+    "navegacion": {
+        "menu_principal": [
+            {
+                "nombre": "Inicio",
+                "url": "indice.html",
+                "icono": "🏠"
+            },
+            {
+                "nombre": "Bienvenida",
+                "url": "bienvenida.html",
+                "icono": "👋"
+            },
+            {
+                "nombre": "Conceptos",
+                "url": "conceptos.html",
+                "icono": "📚"
+            },
+            {
+                "nombre": "Guía Rápida",
+                "url": "guia_rapida.html",
+                "icono": "⚡"
+            },
+            {
+                "nombre": "Demo",
+                "url": "index.html",
+                "icono": "🎮"
+            }
+        ]
+    },
+    "temas": [
+        {
+            "id": "intro",
+            "titulo": "Introducción a Grafos",
+            "descripcion": "Conceptos básicos y definiciones",
+            "duracion": "10 min"
+        },
+        {
+            "id": "tipos",
+            "titulo": "Tipos de Grafos",
+            "descripcion": "Dirigidos, no dirigidos, ponderados, etc.",
+            "duracion": "15 min"
+        },
+        {
+            "id": "representacion",
+            "titulo": "Representación en Memoria",
+            "descripcion": "Matriz de adyacencia y lista de adyacencia",
+            "duracion": "12 min"
+        },
+        {
+            "id": "busqueda",
+            "titulo": "Algoritmos de Búsqueda",
+            "descripcion": "BFS, DFS y otros algoritmos",
+            "duracion": "20 min"
+        },
+        {
+            "id": "camino_corto",
+            "titulo": "Camino Más Corto",
+            "descripcion": "Dijkstra, Floyd-Warshall, Bellman-Ford",
+            "duracion": "25 min"
+        },
+        {
+            "id": "aplicaciones",
+            "titulo": "Aplicaciones Prácticas",
+            "descripcion": "Casos de uso reales de grafos",
+            "duracion": "15 min"
+        }
+    ],
+    "ejemplos": {
+        "activos": true,
+        "lenguajes": ["python", "javascript"],
+        "tipos": [
+            "grafo_no_dirigido",
+            "grafo_dirigido",
+            "grafo_ponderado",
+            "bfs",
+            "dfs",
+            "dijkstra"
+        ]
+    },
+    "estilos": {
+        "colores": {
+            "primario": "#667eea",
+            "secundario": "#764ba2",
+            "exito": "#2ecc71",
+            "error": "#e74c3c",
+            "advertencia": "#f39c12"
+        },
+        "tipografia": {
+            "principal": "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+            "codigo": "Courier New, monospace"
+        }
+    },
+    "performance": {
+        "cache": true,
+        "minificar": true,
+        "lazyload": true
+    }
+}

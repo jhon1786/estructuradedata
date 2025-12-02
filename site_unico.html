@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Unificado - Grafos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">📊 Grafos</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#bienvenida">Bienvenida</a></li>
+                <li><a href="#conceptos">Conceptos</a></li>
+                <li><a href="#guia">Guía Rápida</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#codigo">Código</a></li>
+                <li><a href="#sitemap">Mapa</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- INICIO (contenido del index/indice) -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Estructura de Datos: Grafos</h1>
+            <p>Aprende todo sobre grafos, una de las estructuras de datos más importantes en programación</p>
+            <button class="btn-primary" onclick="document.getElementById('conceptos').scrollIntoView({behavior:'smooth'})">Comienza a aprender</button>
+        </div>
+    </section>
+
+    <!-- BIENVENIDA -->
+    <section id="bienvenida" class="hero-welcome section">
+        <div class="container">
+            <h2>¡Bienvenido al Blog de Grafos!</h2>
+            <p>Descubre la estructura de datos más versátil de la programación</p>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>💡 Fundamental</h3>
+                    <p>Los grafos son una estructura de datos fundamental usada en innumerables aplicaciones del mundo real.</p>
+                </div>
+                <div class="card">
+                    <h3>🚀 Versátil</h3>
+                    <p>Puedes representar prácticamente cualquier relación entre objetos usando grafos.</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 Práctico</h3>
+                    <p>Aprender grafos te ayudará a resolver problemas complejos en entrevistas y proyectos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCEPTOS -->
+    <section id="conceptos" class="section">
+        <div class="container">
+            <h2>Conceptos Fundamentales</h2>
+            <p>Un <strong>grafo</strong> G = (V, E) es una estructura que consiste en vértices (V) y aristas (E).</p>
+
+            <div class="terminology-grid">
+                <div class="term-card">
+                    <h3>Vértice (Nodo)</h3>
+                    <p>Elemento fundamental del grafo. Se representa como un punto.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Arista (Lado)</h3>
+                    <p>Conexión entre dos vértices. Se representa como una línea.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Grado</h3>
+                    <p>Número de aristas conectadas a un vértice.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Ciclo</h3>
+                    <p>Camino que comienza y termina en el mismo vértice.</p>
+                </div>
+            </div>
+
+            <h3 style="color:#667eea; margin-top:1.5rem;">Representación en Memoria</h3>
+            <div class="content-grid">
+                <div class="card">
+                    <h4>Matriz de Adyacencia</h4>
+                    <p>O(V²) memoria. Acceso O(1) para verificar arista.</p>
+                </div>
+                <div class="card">
+                    <h4>Lista de Adyacencia</h4>
+                    <p>O(V+E) memoria. Eficiente para grafos dispersos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUIA RAPIDA -->
+    <section id="guia" class="section alternate">
+        <div class="container">
+            <h2>Guía Rápida</h2>
+            <div class="code-block">
+                <strong>BFS:</strong> O(V+E) — Camino más corto en grafos no ponderados.
+            </div>
+            <div class="code-block">
+                <strong>DFS:</strong> O(V+E) — Detectar ciclos, orden topológico.
+            </div>
+            <div class="code-block">
+                <strong>Dijkstra:</strong> O(V²) o O((V+E)logV) con heap — Camino más corto en grafos ponderados.
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO (contenido del index demo) -->
+    <section id="demo" class="section">
+        <div class="container">
+            <h2>Demo Interactiva</h2>
+            <div class="demo-container">
+                <div class="demo-left">
+                    <h3>Representación de Adyacencia</h3>
+                    <div class="adjacency-matrix">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>C</th>
+                                    <th>D</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>A</strong></td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>B</strong></td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>C</strong></td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>D</strong></td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="demo-right">
+                    <h3>Visualización del Grafo</h3>
+                    <svg width="250" height="250" viewBox="0 0 250 250" class="graph-visualization">
+                        <line x1="125" y1="50" x2="200" y2="125" stroke="#34495e" stroke-width="2"/>
+                        <line x1="125" y1="50" x2="125" y2="200" stroke="#34495e" stroke-width="2"/>
+                        <line x1="200" y1="125" x2="125" y2="200" stroke="#34495e" stroke-width="2"/>
+                        <line x1="50" y1="125" x2="125" y2="200" stroke="#34495e" stroke-width="2"/>
+                        <line x1="50" y1="125" x2="200" y2="125" stroke="#34495e" stroke-width="2"/>
+                        <circle cx="125" cy="50" r="20" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <circle cx="200" cy="125" r="20" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <circle cx="125" cy="200" r="20" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <circle cx="50" cy="125" r="20" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="125" y="57" text-anchor="middle" font-size="14" fill="#fff">A</text>
+                        <text x="200" y="132" text-anchor="middle" font-size="14" fill="#fff">B</text>
+                        <text x="125" y="207" text-anchor="middle" font-size="14" fill="#fff">C</text>
+                        <text x="50" y="132" text-anchor="middle" font-size="14" fill="#fff">D</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓDIGO (grafo_ejemplos & ejercicio info) -->
+    <section id="codigo" class="section alternate">
+        <div class="container">
+            <h2>Código y Ejemplos Python</h2>
+            <div class="code-resources">
+                <div class="code-resource">
+                    <h3>grafo_ejemplos.py</h3>
+                    <p>Incluye clase `Grafo` con BFS, DFS y Dijkstra más ejemplos prácticos.</p>
+                    <a href="grafo_ejemplos.py" class="card-link">Abrir archivo →</a>
+                </div>
+                <div class="code-resource">
+                    <h3>ejercicio.py</h3>
+                    <p>Ejercicio original sobre Colas (Queue).</p>
+                    <a href="ejercicio.py" class="card-link">Abrir archivo →</a>
+                </div>
+                <div class="code-resource">
+                    <h3>test_grafo.py</h3>
+                    <p>Tests unitarios para validar la implementación.</p>
+                    <a href="test_grafo.py" class="card-link">Abrir tests →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SITEMAP / INDICE -->
+    <section id="sitemap" class="section">
+        <div class="container">
+            <h2>Mapa del Sitio</h2>
+            <div class="sitemap">
+                <div class="sitemap-section">
+                    <h3>Páginas y Archivos</h3>
+                    <ul>
+                        <li><strong>index.html</strong> - Demo (ahora consolidado)</li>
+                        <li><strong>indice.html</strong> - Índice (consolidado aquí)</li>
+                        <li><strong>bienvenida.html</strong> - Bienvenida (sección arriba)</li>
+                        <li><strong>conceptos.html</strong> - Conceptos (sección arriba)</li>
+                        <li><strong>guia_rapida.html</strong> - Guía (sección arriba)</li>
+                        <li><strong>grafo_ejemplos.py</strong> - Código Python</li>
+                    </ul>
+                </div>
+                <div class="sitemap-section">
+                    <h3>Documentación</h3>
+                    <ul>
+                        <li><strong>guia_rapida.md</strong></li>
+                        <li><strong>sitemap.md</strong></li>
+                        <li><strong>resumen.txt</strong></li>
+                        <li><strong>README_NUEVO.md</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blog de Estructura de Datos. Aprendiendo sobre Grafos.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

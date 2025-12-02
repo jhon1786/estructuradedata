@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Estructura de Datos: Grafos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">📊 Grafos</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#conceptos">Conceptos</a></li>
+                <li><a href="#tipos">Tipos</a></li>
+                <li><a href="#aplicaciones">Aplicaciones</a></li>
+                <li><a href="#demo">Demo Interactiva</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Estructura de Datos: Grafos</h1>
+            <p>Aprende todo sobre grafos, una de las estructuras de datos más importantes en programación</p>
+            <button class="btn-primary" onclick="scrollToSection('conceptos')">Comienza a aprender</button>
+        </div>
+    </section>
+
+    <section id="conceptos" class="section">
+        <div class="container">
+            <h2>¿Qué es un Grafo?</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Definición</h3>
+                    <p>Un grafo es una estructura de datos que consiste en un conjunto de vértices (nodos) y un conjunto de aristas (conexiones) que conectan pares de vértices.</p>
+                    <p><strong>Componentes:</strong></p>
+                    <ul>
+                        <li><strong>Vértices (V):</strong> Puntos o nodos del grafo</li>
+                        <li><strong>Aristas (E):</strong> Conexiones entre vértices</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Características FIFO vs Grafos</h3>
+                    <p><strong>Cola (FIFO):</strong></p>
+                    <ul>
+                        <li>Estructura lineal</li>
+                        <li>El primero en entrar es el primero en salir</li>
+                    </ul>
+                    <p><strong>Grafos:</strong></p>
+                    <ul>
+                        <li>Estructura no lineal</li>
+                        <li>Conexiones múltiples entre nodos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tipos" class="section alternate">
+        <div class="container">
+            <h2>Tipos de Grafos</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Grafo No Dirigido</h3>
+                    <p>Las aristas no tienen dirección. La conexión es bidireccional.</p>
+                    <div class="example">
+                        <svg width="150" height="100" viewBox="0 0 150 100">
+                            <circle cx="40" cy="50" r="15" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                            <circle cx="110" cy="50" r="15" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="55" y1="50" x2="95" y2="50" stroke="#2c3e50" stroke-width="2"/>
+                            <text x="30" y="55" font-size="14" fill="#fff">A</text>
+                            <text x="105" y="55" font-size="14" fill="#fff">B</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Grafo Dirigido</h3>
+                    <p>Las aristas tienen dirección indicada por flechas.</p>
+                    <div class="example">
+                        <svg width="150" height="100" viewBox="0 0 150 100">
+                            <circle cx="40" cy="50" r="15" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                            <circle cx="110" cy="50" r="15" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="55" y1="50" x2="95" y2="50" stroke="#2c3e50" stroke-width="2"/>
+                            <polygon points="95,50 85,45 87,50 85,55" fill="#2c3e50"/>
+                            <text x="30" y="55" font-size="14" fill="#fff">A</text>
+                            <text x="105" y="55" font-size="14" fill="#fff">B</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Grafo Ponderado</h3>
+                    <p>Las aristas tienen pesos o valores asociados.</p>
+                    <div class="example">
+                        <svg width="150" height="100" viewBox="0 0 150 100">
+                            <circle cx="40" cy="50" r="15" fill="#2ecc71" stroke="#2c3e50" stroke-width="2"/>
+                            <circle cx="110" cy="50" r="15" fill="#2ecc71" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="55" y1="50" x2="95" y2="50" stroke="#2c3e50" stroke-width="2"/>
+                            <text x="30" y="55" font-size="14" fill="#fff">A</text>
+                            <text x="105" y="55" font-size="14" fill="#fff">B</text>
+                            <text x="70" y="35" font-size="12" fill="#2c3e50">5</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Grafo Cíclico</h3>
+                    <p>Contiene al menos un ciclo (camino que comienza y termina en el mismo vértice).</p>
+                    <div class="example">
+                        <svg width="150" height="100" viewBox="0 0 150 100">
+                            <circle cx="40" cy="40" r="12" fill="#9b59b6" stroke="#2c3e50" stroke-width="2"/>
+                            <circle cx="110" cy="40" r="12" fill="#9b59b6" stroke="#2c3e50" stroke-width="2"/>
+                            <circle cx="75" cy="80" r="12" fill="#9b59b6" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="52" y1="38" x2="98" y2="38" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="40" y1="52" x2="75" y2="68" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="110" y1="52" x2="75" y2="68" stroke="#2c3e50" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aplicaciones" class="section">
+        <div class="container">
+            <h2>Aplicaciones de Grafos</h2>
+            <div class="applications">
+                <div class="app-item">
+                    <h3>🗺️ Mapas y Rutas</h3>
+                    <p>GPS, navegación, búsqueda del camino más corto (Google Maps, Waze)</p>
+                </div>
+                <div class="app-item">
+                    <h3>🤝 Redes Sociales</h3>
+                    <p>Conexiones entre usuarios, recomendaciones (Facebook, LinkedIn)</p>
+                </div>
+                <div class="app-item">
+                    <h3>🌐 Internet</h3>
+                    <p>Enrutamiento de paquetes, estructura de la web</p>
+                </div>
+                <div class="app-item">
+                    <h3>🧬 Biología</h3>
+                    <p>Redes metabólicas, cadenas de proteínas</p>
+                </div>
+                <div class="app-item">
+                    <h3>💼 Logística</h3>
+                    <p>Optimización de rutas de entrega, planificación de proyectos</p>
+                </div>
+                <div class="app-item">
+                    <h3>🎮 Videojuegos</h3>
+                    <p>IA de enemigos, búsqueda de caminos (pathfinding)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="section alternate">
+        <div class="container">
+            <h2>Demo Interactiva</h2>
+            <div class="demo-container">
+                <div class="demo-left">
+                    <h3>Representación de Adyacencia</h3>
+                    <div class="adjacency-matrix">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>A</th>
+                                    <th>B</th>
+                                    <th>C</th>
+                                    <th>D</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>A</strong></td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>B</strong></td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>C</strong></td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>D</strong></td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="demo-right">
+                    <h3>Visualización del Grafo</h3>
+                    <svg width="250" height="250" viewBox="0 0 250 250" class="graph-visualization">
+                        <!-- Aristas -->
+                        <line x1="125" y1="50" x2="200" y2="125" stroke="#34495e" stroke-width="2"/>
+                        <line x1="125" y1="50" x2="125" y2="200" stroke="#34495e" stroke-width="2"/>
+                        <line x1="200" y1="125" x2="125" y2="200" stroke="#34495e" stroke-width="2"/>
+                        <line x1="50" y1="125" x2="125" y2="200" stroke="#34495e" stroke-width="2"/>
+                        <line x1="50" y1="125" x2="200" y2="125" stroke="#34495e" stroke-width="2"/>
+                        
+                        <!-- Vértices -->
+                        <circle cx="125" cy="50" r="20" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <circle cx="200" cy="125" r="20" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <circle cx="125" cy="200" r="20" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <circle cx="50" cy="125" r="20" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        
+                        <!-- Etiquetas -->
+                        <text x="125" y="57" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">A</text>
+                        <text x="200" y="132" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">B</text>
+                        <text x="125" y="207" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">C</text>
+                        <text x="50" y="132" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">D</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Algoritmos Comunes en Grafos</h2>
+            <div class="algorithms">
+                <div class="algo-card">
+                    <h3>BFS (Búsqueda en Amplitud)</h3>
+                    <p>Explora todos los vértices a distancia k antes de explorar los vértices a distancia k+1.</p>
+                    <code>Complejidad: O(V + E)</code>
+                </div>
+                <div class="algo-card">
+                    <h3>DFS (Búsqueda en Profundidad)</h3>
+                    <p>Explora lo máximo posible a lo largo de cada rama antes de retroceder.</p>
+                    <code>Complejidad: O(V + E)</code>
+                </div>
+                <div class="algo-card">
+                    <h3>Dijkstra</h3>
+                    <p>Encuentra el camino más corto entre nodos en un grafo ponderado.</p>
+                    <code>Complejidad: O(V²) o O((V + E)logV)</code>
+                </div>
+                <div class="algo-card">
+                    <h3>Floyd-Warshall</h3>
+                    <p>Encuentra el camino más corto entre todos los pares de vértices.</p>
+                    <code>Complejidad: O(V³)</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blog de Estructura de Datos. Aprendiendo sobre Grafos.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

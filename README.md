@@ -1,0 +1,2 @@
+# estructuradedata
+implementacion
